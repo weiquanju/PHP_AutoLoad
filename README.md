@@ -2,7 +2,7 @@
 Another specification of autoload method for php 
 
 
-##* *Use cases：**
+## **Use cases：**
 please view the file that is in the path of `demo/demoIndex.php`.
 
 ## Rule of `autoLoad`
