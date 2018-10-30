@@ -6,17 +6,18 @@
  * Project: trunk
  */
 require_once '../autoLoad.php';
-spl_autoload_register([AutoLoad::Instance(__DIR__),'handler']);
+autoLoad::Instance(__DIR__)->register();
 use demoWords\Hi as hi;
 use demoWords\sentence as sent;
 $msg = new demo\message();
 $wrap = new demo\wrap\html();
 $bodyContent = $wrap->createSingleTarget('br');
 $bodyContent.= $wrap->createDoubleTarget('strong',null,$msg->hello());
-$bodyContent.= $wrap->div('hello class name space!');
+$bodyContent.= $wrap->createSingleTarget('hr');
+$hi = new hi();
+$bodyContent.= $wrap->div($hi->getHello().' '.$wrap->createDoubleTarget('strong',['style'=>'color:red'],$hi->getName('class name space!')));
 $bodyContent.= $wrap->createSingleTarget('br');
 $sent = new sent();
-$hi = new hi();
-$name = isset($_REQUEST['name']) ? (string)$_REQUEST['name'] : 'weiquanju';
 
+$name = isset($_REQUEST['name']) ? (string)$_REQUEST['name'] : 'weiquanju';
 echo $sent->sayToSomebody($hi->getHello(),$hi->getName($name?$name:'xueyuan'),$bodyContent);

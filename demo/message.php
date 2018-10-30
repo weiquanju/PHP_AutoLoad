@@ -7,12 +7,14 @@
  */
 
 namespace demo;
-
+use demoWords\Hi as hi;
 
 class message
 {
+
     public function hello()
     {
-        return "hello autoload!";
+        $hi = new hi();
+        return $hi->getHello().' '.$hi->getName('autoload');
     }
 }

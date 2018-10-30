@@ -13,7 +13,7 @@ class Hi
 {
     public function getHello()
     {
-        return "hello" ;
+        return "Hi" ;
     }
 
     public function getName($name)

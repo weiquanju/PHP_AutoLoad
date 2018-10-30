@@ -6,7 +6,7 @@
  * @example
  * spl_autoload_register([AutoLoad::Instance(__DIR__),'handler']);
  */
-Class AutoLoad
+Class autoLoad
 {
     /**
      * @var self
@@ -39,6 +39,11 @@ Class AutoLoad
         self::$instance = new self();
         self::$instance->setRootDir($rootDir);
         return self::$instance;
+    }
+
+    public function register()
+    {
+        spl_autoload_register([self::$instance,'handler']);
     }
 
     /**

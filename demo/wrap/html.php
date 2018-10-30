@@ -47,17 +47,25 @@ class html
 
     public function createSingleTarget($name,$param=[])
     {
-        return sprintf($this->targetSingle($name),$this->getParma($param));
+        return sprintf($this->targetSingle($name),$this->getParam($param));
     }
 
     public function createDoubleTarget($name,$param=[],$string)
     {
-        return sprintf($this->targetDoubleFormat($name),$this->getParma($param),$string);
+        return sprintf($this->targetDoubleFormat($name),$this->getParam($param),$string);
     }
 
-    private function getParma($param)
+    private function getParam($param)
     {
-        return !empty($param) ? http_build_query($param,'',' ') :'';
+
+        if(empty($param)){
+            return '';
+        }
+        $data = [];
+        foreach ($param as $key=>$value){
+            $data[]="{$key}={$value}";
+        }
+        return implode(' ',$data);
     }
 
     /**
