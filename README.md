@@ -5,7 +5,7 @@ Another specification of autoload method for php
 ## **Use cases：**
 please view the file that is in the path of `demo/demoIndex.php`.
 
-## Rule of `autoLoad`
+## Rule of `autoLoad.php`
 #### relationship:
 The relationship between filename, directory namespace and classname. 
 For example of the file "demo/message.php":
